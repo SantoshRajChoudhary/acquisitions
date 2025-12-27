@@ -105,3 +105,12 @@ jobs:
         run: |
           echo "::error::Docker build failed - please check the build logs above for details"
           echo "::notice::Ensure your Dockerfile is properly configured and secrets are set correctly"
+
+      - name: Build and push Docker image
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    push: true
+    tags: |
+      ${{ env.IMAGE_NAME }}:latest
+      ${{ env.IMAGE_NAME }}:${{ github.ref_name }}
