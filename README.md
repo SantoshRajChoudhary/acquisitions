@@ -1,1 +1,1 @@
-edit workflows
+edit ci cd pipeline
